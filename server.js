@@ -10,7 +10,7 @@ app.use(cors({
 }))
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://Palla:Palla@cluster0.naquw0w.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://Todo:Todo@cluster0.scnemhb.mongodb.net/?retryWrites=true&w=majority')
 	.then(() => console.log("DB Connected..."))
 
 app.post('/addtask', async (req, res) => {
