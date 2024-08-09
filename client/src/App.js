@@ -25,13 +25,11 @@ const App = () => {
   useEffect(() => {
     axios.get("http://localhost:5000/gettask").then((res) => setItem(res.data));
   }, []);
-
   const deleteHandler = async (id) => {
     await axios
       .delete(`http://localhost:5000/delete/${id}`)
       .then((res) => setItem(res.data));
   };
-
   return (
     <div className="d-flex justify-content-center p-3">
       <div className="card shadow w-100 " style={{ maxWidth: "600px" }}>
@@ -74,8 +72,6 @@ const App = () => {
               </div>
             ))}
           </div>
-
-
 
         </div>
       </div>
