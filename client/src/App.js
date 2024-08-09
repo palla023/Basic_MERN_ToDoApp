@@ -26,7 +26,7 @@ const App = () => {
     axios.get("http://localhost:5000/gettask").then((res) => setItem(res.data));
   }, []);
 
-  const deleteHandler =async (id) => {
+  const deleteHandler = async (id) => {
     await axios
       .delete(`http://localhost:5000/delete/${id}`)
       .then((res) => setItem(res.data));
@@ -56,12 +56,15 @@ const App = () => {
 
           <div className="row g-3">
             {item.map((task) => (
-              <div key={task._id} className="col-12 col-md-6 my-2">
-                <div className="border p-3 rounded ">
-                  <h5 className="d-flex justify-content-between align-items-center px-1">
-                    <span style={{ wordBreak: "break-word" }}>{task.todo}</span>
+              <div key={task._id} className="col-12 col-sm-6 my-2 d-flex align-items-stretch">
+                <div className="border p-3 rounded w-100 d-flex flex-column justify-content-between">
+                  <h5 className="d-flex justify-content-between align-items-center flex-grow-1">
+                    <span style={{ flex: 1, marginRight: "10px", wordBreak: "break-word" }}>
+                      {task.todo}
+                    </span>
                     <button
                       className="btn btn-sm btn-danger"
+                      style={{ minWidth: "80px" }} // Set a fixed width for the button
                       onClick={() => deleteHandler(task._id)}
                     >
                       Delete
@@ -71,6 +74,9 @@ const App = () => {
               </div>
             ))}
           </div>
+
+
+
         </div>
       </div>
     </div>
